@@ -1,1 +1,4 @@
+#elf binary dir
 bin/
+#objects and static libraries
+*.[oa]

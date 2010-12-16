@@ -1,6 +1,6 @@
 /* 
  */
-#include "email.h"
+#include "mail.h"
 typedef struct
 {
     unsigned long   uuid;

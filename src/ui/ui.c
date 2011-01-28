@@ -1,6 +1,5 @@
 #include <ncurses.h>
 #include <string.h>
-#include <signal.h>
 #include "ui.h"
 
 #define MAILBOX 0
@@ -29,8 +28,6 @@ int main()
 {//char[] title = "blablabla";
     /*Start curses mode*/
 	init_curses();
-    /*Define resize signal method*/
-	signal(SIGWINCH, do_resize);
 
     refresh();
 /*
@@ -76,19 +73,14 @@ int main()
         //          "You have selected menu item %d.",selected_item+1);
         //    touchwin(stdscr);
         //    refresh();
-        }
+        } else if (key==KEY_RESIZE) {
+		update_ui();
+	}
     } while (key!=ESCAPE);
 	/* End curses mode*/
 	end_curses();
 
     return 0;
-}
-
-void do_resize(int sig)
-{
-    endwin();
-    refresh();
-    update_ui();
 }
 
 int init_curses()

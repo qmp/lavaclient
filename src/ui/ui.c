@@ -207,4 +207,4 @@ void del_window(WINDOW* win)
 	wrefresh(win);
 	delwin(win);
 }
-
+/* vim: set sts=4:sw=4:ts=4:noexpandtab */
